@@ -1,0 +1,125 @@
+<section class="login-block">
+  <!-- Container-fluid starts -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <form class="md-float-material form-material" [formGroup]="registerForm" (ngSubmit)="SignUp()">
+          <div class="text-center">
+            <img src="assets/images/logo.png" alt="logo.png">
+          </div>
+          <div class="auth-box card">
+            <div class="card-block">
+              <div class="row m-b-20">
+                <div class="col-md-12">
+                  <h3 class="text-center txt-primary">Sign up</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group form-primary">
+                    <input type="text" name="first-name" class="form-control" required="" formControlName="firstname" autocomplete="off">
+                    <span class="form-bar"></span>
+                    <label class="float-label">First Name</label>
+                    <div *ngIf="submitted && f.firstname.errors">
+                      <div class="messages text-danger" *ngIf = "f.firstname.errors?.required">First name is required.</div>
+                    </div>
+                  </div>    
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group form-primary">
+                    <input type="text" name="last-name" class="form-control" required="" formControlName="lastname" autocomplete="nope">
+                    <span class="form-bar"></span>
+                    <label class="float-label">Last Name</label>
+                    <div *ngIf="submitted && f.lastname.errors">
+                      <div class="messages text-danger" *ngIf = "f.lastname.errors?.required">Last name is required.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group form-primary">
+                <input type="text" name="user-name" class="form-control" required="" formControlName="username" autocomplete="off">
+                <span class="form-bar"></span>
+                <label class="float-label">Choose Username</label>
+                <div *ngIf="submitted && f.username.errors">
+                  <div class="messages text-danger" *ngIf="f.username.errors?.required||f.username.errors?.minlength">Username must be at least 3 characters.</div>
+                </div>
+              </div>
+              <div class="form-group form-primary">
+                <input type="text" name="email" class="form-control" required="" formControlName="email" autocomplete="nope">
+                <span class="form-bar"></span>
+                <label class="float-label">Your Email Address</label>
+                <div *ngIf = "submitted && f.email.errors">
+                  <div class="messages text-danger" *ngIf="f.email.errors?.required ||f.email.errors?.email">Email is required.</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group form-primary">
+                    <input type="password" name="password" class="form-control" required="" formControlName="password" autocomplete="nope">                    
+                    <span class="form-bar"></span>
+                    <label class="float-label">Password</label>
+                    <div *ngIf="submitted && f.password.errors">
+                      <div class="messages text-danger" *ngIf="f.password.errors?.required">Password is required.</div>
+                      <div class="messages text-danger" *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group form-primary">
+                    <input type="password" name="confirm-password" class="form-control" required="" formControlName="confirmPassword" compare="password" autocomplete="nope">                    
+                    <span class="form-bar"></span>
+                    <label class="float-label">Confirm Password</label>
+                    <div *ngIf = "submitted && f.confirmPassword.errors">
+                      <div class="messages text-danger" *ngIf="registerForm.controls.confirmPassword.errors?.required">Confirm password is required.</div>
+                      <div class="messages text-danger" *ngIf="f.confirmPassword.errors?.mustMatch">Passwords must match</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-t-25 text-left">
+                <div class="col-md-12">
+                  <div class="checkbox-fade fade-in-primary">
+                    <label>
+                      <input type="checkbox" formControlName="termCondition" name="termCondition" required>
+                      <span class="cr"><i class="cr-icon fa fa-check txt-primary"></i></span>
+                      <span class="text-inverse">I read and accept <a href="javascript:">Terms &amp; Conditions.</a></span>                      
+                      <div *ngIf="submitted && f.termCondition.errors">
+                        <div class="messages text-danger" *ngIf="f.termCondition.errors?.required">You must accept our privacy policy and terms.</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>                
+              </div>
+              <div class="row m-t-25 text-left">
+                <div class="col-md-12">
+                  <div class="checkbox-fade fade-in-primary">
+                    <div class="messages text-danger">{{message}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-t-20">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary btn-md btn-block waves-light text-center m-b-20 ripple">Sign up now</button>
+                </div>
+              </div>
+              <hr/>
+              <div class="row">
+                <div class="col-md-10">
+                  <p class="text-inverse text-left m-b-0">If you have your own account?</p>
+                  <p class="text-inverse text-left"><a [routerLink]="['/auth/login']"><b>to Sign In</b></a></p>
+                </div>
+                <div class="col-md-2">
+                  <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end of col-sm-12 -->
+    </div>
+    <!-- end of row -->
+  </div>
+  <!-- end of container-fluid -->
+</section>
