@@ -24,7 +24,7 @@ export class BasicRegComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
                 firstname : ['', Validators.required],
                 lastname  : ['', Validators.required],
-                username  : ['', Validators.compose([Validators.required, Validators.minLength(3)])],      
+                // username  : ['', Validators.compose([Validators.required, Validators.minLength(3)])],      
                 email     : ['', Validators.compose([Validators.required, Validators.email])],
                 password  : ['', Validators.compose([Validators.required, Validators.minLength(6)])],
                 confirmPassword : ['', Validators.required],
@@ -43,9 +43,9 @@ export class BasicRegComponent implements OnInit {
       if (this.registerForm.valid) {
         console.log(this.registerForm.controls);
         const userinfor = {
-                              firstname:this.f.firstname.value,
-                              lastname : this.f.lastname.value,
-                              username: this.f.username.value,
+                              first_name:this.f.firstname.value,
+                              last_name : this.f.lastname.value,
+                              // username: this.f.username.value,
                               email: this.f.email.value,
                               password:this.f.password.value
         };

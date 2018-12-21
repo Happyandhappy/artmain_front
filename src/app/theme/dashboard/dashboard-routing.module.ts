@@ -12,6 +12,10 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './analytics/analytics.module#AnalyticsModule'
+      },
+      {
+        path: 'superadmindash',
+        loadChildren: './superadmin/superadmin.module#SuperAdminModule'
       }
     ]
   }

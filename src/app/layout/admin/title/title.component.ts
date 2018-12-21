@@ -25,7 +25,7 @@ export class TitleComponent {
           });
         } while (currentRoute);
         if (title !== undefined ) {
-          this.titleService.setTitle(title + ' | Mega Able Angular 5+');
+          this.titleService.setTitle(title);
         }
       });
   }

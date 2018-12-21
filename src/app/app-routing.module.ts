@@ -5,12 +5,12 @@ import {AuthComponent} from './layout/auth/auth.component';
 import { AuthGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
-  // {path:'', redirectTo : 'auth/login', pathMatch:'full'},
-  {path:'', redirectTo : 'dashboard', pathMatch:'full'},
+  {path:'', redirectTo : 'auth/login', pathMatch:'full'},
+  // {path:'', redirectTo : 'dashboard', pathMatch:'full'},
   {
     path: '',
     component: AdminComponent,
-    // canActivate:[AuthGuard],
+    canActivate:[AuthGuard],
     children: [
       {
         path: '',

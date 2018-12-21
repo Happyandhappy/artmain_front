@@ -15,7 +15,7 @@ export class BasicLoginComponent implements OnInit {
   invalidLogin:boolean = false;
   navUrl:string = "";
   submitted:boolean = false;
-  error = {"error":""};
+  error = "";
   constructor( private router:Router, private authService:AuthService, private activateRoute:ActivatedRoute) {}
     
   ngOnInit() {
@@ -39,13 +39,13 @@ export class BasicLoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit(){
-    this.error.error = "";
+    this.error = "";
     this.invalidLogin = false;
     this.submitted = true;
     if (this.loginForm.invalid){      
       return;
     }else{
-      this.authService.login({username_or_email:this.f.email.value, password:this.f.password.value})
+      this.authService.login({email:this.f.email.value, password:this.f.password.value})
       .pipe(first())
       .subscribe(
         data => {            
@@ -56,7 +56,8 @@ export class BasicLoginComponent implements OnInit {
               this.router.navigate(['dashboard']);            
         },
         error => {
-            this.error = error.error;
+            this.error = error.error.message;
+            console.log(this.error);
             return;
       });
     }    

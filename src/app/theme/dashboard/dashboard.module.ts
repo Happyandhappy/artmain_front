@@ -10,4 +10,4 @@ import {SharedModule} from '../../shared/shared.module';
   ],
   declarations: []
 })
-export class DashboardModule { }
+export class DashboardModule {}
